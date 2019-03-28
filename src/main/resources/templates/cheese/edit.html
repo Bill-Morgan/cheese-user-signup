@@ -8,18 +8,19 @@
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: navCheese"></nav>
 
-<form method="post" style="max-width:600px">
+<form method="post" action="/cheese/edit" style="max-width:600px">
+    <input type="hidden" th:value="${editCheese.id}" name="cheeseId"/>
     <div class="form-group">
         <label>Name
-            <input type="text" name="username" placeholder="name" class="form-control"/>
+            <input type="text" name="name" th:value="${editCheese.name}" class="form-control"/>
         </label>
     </div>
     <div class="form-group">
         <label>Description
-            <input type="text" name="description" placeholder="description" class="form-control"/>
+            <input type="text" name="description" th:value="${editCheese.description}" class="form-control"/>
         </label>
     </div>
-        <input type="submit" value="Add Cheese" />
+    <input type="submit" value="Edit Cheese" />
 </form>
 </body>
 </html>

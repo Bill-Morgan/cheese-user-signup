@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+    <meta charset="UTF-8" />
+    <title th:text="${title}">Title</title>
+</head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+<nav th:replace="fragments :: navUser"></nav>
+
+<form method="post" style="max-width:600px">
+    <div class="form-group">
+        <label>User Name
+            <input type="text" name="username" placeholder="name" class="form-control"/>
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Email
+            <input type="email" name="email" placeholder="email" class="form-control"/>
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Password
+            <input type="password" name="password" placeholder="password" class="form-control"/>
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Verify Password
+            <input type="password" name="verify" placeholder="verify password" class="form-control"/>
+        </label>
+    </div>
+    <input type="submit" value="Add User" />
+</form>
+</body>
+</html>

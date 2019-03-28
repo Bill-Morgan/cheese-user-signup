@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+    <meta charset="UTF-8" />
+    <title th:text="${title}">Title</title>
+</head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navUser"></nav>
+
+<p th:unless="${userArray} and ${userArray.size()}">no users :(</p>
+
+
+<table class="table" style="max-width:600px">
+    <tr>
+        <th>User Name</th>
+    </tr>
+    <tr th:each="eachUser : ${userArray}">
+        <td th:text="${eachUser.username}"></td>
+    </tr>
+</table>
+
+
+</body>
+</html>

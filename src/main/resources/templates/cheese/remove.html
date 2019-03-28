@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navCheese"></nav>
+
+    <br/>
+    <br/>
+    <form method="post" style="max-width:600px">
+        <div th:each="eachCheese : ${cheesesArray}" >
+            <input th:text="${'  ' + eachCheese.name}" type="checkbox" name="cheeseIDs" th:value="${eachCheese.id}"  />
+        </div>
+        <input type="submit" value="Remove Cheese" />
+    </form>
+
+</body>
+</html>
