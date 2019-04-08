@@ -19,21 +19,27 @@ public class CheeseData {
     }
     //remove
     public static void remove(int id) {
-        Cheese cheseToRemove = getById(id);
-        cheesesArray.remove(cheseToRemove);
+        Cheese cheeseToRemove = getById(id);
+        cheesesArray.remove(cheeseToRemove);
     }
 
-    public static void update(int cheeseId, String name, String description) {
+    public static void edit(int cheeseId, Cheese editCheese) {
+        edit(cheeseId, editCheese.getName(), editCheese.getDescription(), editCheese.getType(), editCheese.getRating());
+    }
+
+    public static void edit(int cheeseId, String name, String description, CheeseType type, int rating) {
         Cheese cheeseToEdit = getById(cheeseId);
         cheeseToEdit.setName(name);
         cheeseToEdit.setDescription(description);
+        cheeseToEdit.setType(type);
+        cheeseToEdit.setRating(rating);
     }
 
     //getById
     public static Cheese getById(int id){
         Cheese theCheese = null;
         for (Cheese testCheese : cheesesArray) {
-            if (testCheese.getId() == id) {
+            if (testCheese.getCheeseId() == id) {
                 theCheese = testCheese;
                 break;
             }

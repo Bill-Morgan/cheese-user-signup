@@ -11,23 +11,23 @@
 
     <p th:unless="${cheesesArray} and ${cheesesArray.size()}">no cheese :(</p>
 
-
-    <table class="table" style="max-width:600px">
-        <tr>
-            <th style="max-width:25px"></th>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
-        <tr th:each="eachCheese : ${cheesesArray}">
-            <td style="max-width:25px"><a th:href="@{'/cheese/edit/' + ${eachCheese.id}}" th:text="Edit"></a></td>
-            <td th:text="${eachCheese.name}"></td>
-            <td th:text="${eachCheese.description}"></td>
-        </tr>
-    </table>
-<!--    <ul>
-        <li th:each="eachCheese : ${cheesesArray}">
-            <span th:text="${eachCheese.getName()} + ': ' + ${eachCheese.getDescription()}"></span>
-        </li>
-    </ul> -->
+    <div th:if="${cheesesArray} and ${cheesesArray.size()}">
+        <table class="table" style="max-width:600px">
+            <tr>
+                <th style="max-width:25px"></th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Rating</th>
+            </tr>
+            <tr th:each="eachCheese : ${cheesesArray}">
+                <td style="max-width:25px"><a th:href="@{'/cheese/edit/' + ${eachCheese.cheeseId}}" th:text="Edit"></a></td>
+                <td th:text="${eachCheese.name}"></td>
+                <td th:text="${eachCheese.description}"></td>
+                <td th:text="${eachCheese.type.name}"></td>
+                <td th:text="${eachCheese.rating}"></td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

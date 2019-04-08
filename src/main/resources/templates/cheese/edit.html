@@ -8,17 +8,30 @@
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: navCheese"></nav>
 
-<form method="post" action="/cheese/edit" style="max-width:600px">
-    <input type="hidden" th:value="${editCheese.id}" name="cheeseId"/>
+<form method="post" style="max-width:600px" th:object="${cheese}">
     <div class="form-group">
-        <label>Name
-            <input type="text" name="name" th:value="${editCheese.name}" class="form-control"/>
-        </label>
+        <label th:for="name">Name</label>
+        <input th:field="*{name}" class="form-control" />
+        <span th:errors="*{name}" class="error"></span>
     </div>
     <div class="form-group">
-        <label>Description
-            <input type="text" name="description" th:value="${editCheese.description}" class="form-control"/>
-        </label>
+        <label th:for="description">Description</label>
+        <input th:field="*{description}" class="form-control" />
+        <span th:errors="*{description}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="type">Type</label>
+        <select th:field="*{type}">
+            <option th:each="cheeseType : ${cheeseTypes}"
+                    th:text="${cheeseType.name}"
+                    th:value="${cheeseType}">
+            </option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label th:for="rating">Rating</label>
+        <input class="form-control" th:field="*{rating}" />
+        <span th:errors="*{rating}" class="error"></span>
     </div>
     <input type="submit" value="Edit Cheese" />
 </form>

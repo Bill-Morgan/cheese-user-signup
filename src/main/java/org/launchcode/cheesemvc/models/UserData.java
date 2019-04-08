@@ -1,7 +1,5 @@
 package org.launchcode.cheesemvc.models;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import java.util.ArrayList;
 
 public class UserData {
@@ -13,13 +11,8 @@ public class UserData {
         return userArray;
     }
 
-    public static Boolean addUser(User newUser, String verify){
-        Boolean retValue = Boolean.FALSE;
-        if (verify.equals(newUser.getPassword())) {
-            userArray.add(newUser);
-            retValue = Boolean.TRUE;
-        }
-        return retValue;
+    public static void addUser(User newUser){
+        userArray.add(newUser);
     }
 
     public static User getUser(String userName){

@@ -12,7 +12,7 @@
     <br/>
     <form method="post" style="max-width:600px">
         <div th:each="eachCheese : ${cheesesArray}" >
-            <input th:text="${'  ' + eachCheese.name}" type="checkbox" name="cheeseIDs" th:value="${eachCheese.id}"  />
+            <input th:text="${'  ' + eachCheese.name}" type="checkbox" name="cheeseIDs" th:value="${eachCheese.cheeseId}"  />
         </div>
         <input type="submit" value="Remove Cheese" />
     </form>

@@ -8,26 +8,26 @@
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: navUser"></nav>
 
-<form method="post" style="max-width:600px">
+<form method="post" style="max-width:600px" th:object="${user}">
     <div class="form-group">
-        <label>User Name
-            <input type="text" name="username" placeholder="name" class="form-control"/>
-        </label>
+        <label th:for="username">User Name</label>
+        <input th:field="*{username}" class="form-control" th:required="required"/>
+        <span th:errors="*{username}" class="error"></span>
     </div>
     <div class="form-group">
-        <label>Email
-            <input type="email" name="email" placeholder="email" class="form-control"/>
-        </label>
+        <label th:for="email">Email</label>
+        <input th:field="*{email}" class="form-control"/>
+        <span th:errors="*{email}" class="error"></span>
     </div>
     <div class="form-group">
-        <label>Password
-            <input type="password" name="password" placeholder="password" class="form-control"/>
-        </label>
+        <label th:for="password">Password</label>
+        <input th:field="*{password}" class="form-control" th:required="required" />
+        <span th:errors="*{password}" class="error"></span>
     </div>
     <div class="form-group">
-        <label>Verify Password
-            <input type="password" name="verify" placeholder="verify password" class="form-control"/>
-        </label>
+        <label th:for="verify">Verify Password</label>
+        <input type="password" name="verify" class="form-control"/>
+        <span th:if="${verify}" th:text="Passwords do not match"></span>
     </div>
     <input type="submit" value="Add User" />
 </form>
