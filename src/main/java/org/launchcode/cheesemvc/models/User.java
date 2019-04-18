@@ -11,6 +11,7 @@ public class User {
     @Size(min=5, max=15, message = "Length min 5 and max 15")
     private String username;
     private String email;
+
     @NotNull
     @Size(min=1, message = "Password required")
     private String password;

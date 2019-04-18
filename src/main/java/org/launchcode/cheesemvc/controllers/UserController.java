@@ -36,11 +36,13 @@ public class UserController {
                       Model model){
 
         if (errors.hasErrors()) {
-            model.addAttribute(user);
+            model.addAttribute("user",user);
             return ("user/add");
         }
         if (!user.getPassword().equals(verify)){
-            model.addAttribute("verify", "error");
+            model.addAttribute("user",user);
+            model.addAttribute("verify", "");
+            return ("user/add");
         }
         UserData.addUser(user);
         return ("redirect:");
